@@ -11,7 +11,7 @@ const MaxOffer = ({price, currency}) => {
     }
 
     return(
-        <p>Up to {price} {shortcode} offered</p>
+        <p className="max-offer">up to {price} {shortcode} offered</p>
     );
 };
 export default MaxOffer

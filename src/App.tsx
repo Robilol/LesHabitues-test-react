@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './styles/app.scss';
 import ShopList from './containers/ShopList'
 
 function App() {

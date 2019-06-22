@@ -1,0 +1,14 @@
+@import "shop";
+
+.shop-list {
+  list-style: none;
+
+  li {
+    padding: 20px 0;
+    width: 400px;
+
+    &:not(:first-child) {
+      border-top: 1px solid $grey;
+    }
+  }
+}

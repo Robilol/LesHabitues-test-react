@@ -1,0 +1,36 @@
+.shop {
+  display: flex;
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    border: 1px solid $grey;
+  }
+
+  .infos {
+    color: $grey;
+    margin-left: 20px;
+    align-self: center;
+    flex: 1;
+
+    p {
+      margin: 0;
+    }
+
+    .name {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .address, .address-city {
+      margin-left: 5px;
+
+    }
+
+    .max-offer {
+      color: $blue;
+    }
+  }
+}
