@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import MaxOffer from "./MaxOffer";
 
 const Shop = ({logo, name, address, city, zipCode, currency, maxOffer}) => {
     return(
@@ -9,7 +10,7 @@ const Shop = ({logo, name, address, city, zipCode, currency, maxOffer}) => {
                 <p>{name}</p>
                 <p>{address}</p>
                 <p>{zipCode} {city}</p>
-                <p>{maxOffer} {currency}</p>
+                <MaxOffer price={maxOffer} currency={currency}/>
             </div>
         </div>
     );
