@@ -1,4 +1,5 @@
 import React from 'react'
+import Shop from "../components/Shop";
 
 const APIURL = 'https://www.leshabitues.fr/testapi/shops';
 
@@ -13,7 +14,7 @@ export default class ShopList extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({ isLoading: true });
+        this.setState({isLoading: true});
 
         fetch(APIURL)
             .then(response => {
@@ -29,11 +30,11 @@ export default class ShopList extends React.Component {
                     isLoading: false
                 })
             })
-            .catch(error => this.setState({ error, isLoading: false }));
+            .catch(error => this.setState({error, isLoading: false}));
     }
 
     render() {
-        const { isLoading, error } = this.state;
+        const {data, isLoading, error} = this.state;
 
         if (error) {
             return <p>{error.message}</p>;
@@ -44,7 +45,14 @@ export default class ShopList extends React.Component {
         }
 
         return (
-            <p>Bla</p>
+            <ul className="shop-list">
+                {data.map(shop =>
+                    <li key={shop.id}>
+                        <Shop logo={shop.logo} name={shop.name} address={shop.address} city={shop.city}
+                              zipCode={shop.zipcode} currency={shop.currency} maxOffer={shop.maxoffer}/>
+                    </li>
+                )}
+            </ul>
         );
     }
 }
