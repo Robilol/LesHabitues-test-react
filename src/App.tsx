@@ -1,11 +1,11 @@
 import React from 'react';
 import './styles/app.scss';
-import ShopList from './containers/ShopList'
+import ShopListContainer from './containers/ShopListContainer'
 
 function App() {
   return (
       <div className="App">
-        <ShopList/>
+        <ShopListContainer/>
       </div>
   );
 }

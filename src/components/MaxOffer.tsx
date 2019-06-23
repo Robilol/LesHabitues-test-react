@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
+interface IProps {
+    price: string,
+    currency: string
+}
 
-const MaxOffer = ({price, currency}) => {
+const MaxOffer: React.FunctionComponent<IProps> = ({price, currency}) => {
 
     let shortcode = "";
 

@@ -2,7 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import MaxOffer from "./MaxOffer";
 
-const Shop = ({logo, name, address, city, zipCode, currency, maxOffer}) => {
+interface IProps {
+    logo: string,
+    name: string,
+    address: string,
+    city: string,
+    zipCode: string,
+    currency: string,
+    maxOffer: string
+}
+
+const Shop: React.FunctionComponent<IProps> = ({logo, name, address, city, zipCode, currency, maxOffer}) => {
     return(
         <div className="shop">
             <img src={logo} alt={name} className="logo"/>

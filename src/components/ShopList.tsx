@@ -3,17 +3,27 @@ import Shop from "../components/Shop";
 
 const APIURL = 'https://www.leshabitues.fr/testapi/shops';
 
-export default class ShopList extends React.Component {
-    constructor(props) {
+interface IState {
+    data: [],
+    isLoading: boolean,
+    error: any
+}
+
+export default class ShopList extends React.Component<{}, IState> {
+    constructor(props: any) {
         super(props);
         this.state = {
             data: [],
             isLoading: false,
-            error: null,
+            error: null
         };
     }
 
     componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData() {
         this.setState({isLoading: true});
 
         fetch(APIURL)
@@ -46,11 +56,15 @@ export default class ShopList extends React.Component {
 
         return (
             <ul className="shop-list">
-                {data.map(shop =>
-                    <li key={shop.id}>
-                        <Shop logo={shop.logo} name={shop.name} address={shop.address} city={shop.city}
-                              zipCode={shop.zipcode} currency={shop.currency} maxOffer={shop.maxoffer}/>
-                    </li>
+                {data.map(shop => {
+                        const {name, address, logo, currency, id, zipcode, maxoffer, city} = shop;
+                        return (
+                            <li key={id}>
+                                <Shop logo={logo} name={name} address={address} city={city}
+                                      zipCode={zipcode} currency={currency} maxOffer={maxoffer}/>
+                            </li>
+                        )
+                    }
                 )}
             </ul>
         );
